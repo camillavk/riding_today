@@ -12,20 +12,284 @@
     <!-- <link href="../assets/css/application.css" rel="stylesheet"> -->
    	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
    	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
-<%= yield %>
+	<!-- Wrapper required for sidebar transitions -->
+    <div class="st-container">
 
-<!-- <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> -->
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-main navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#sidebar-menu" data-effect="st-effect-1" data-toggle="sidebar-menu" class="toggle pull-left visible-xs"><i class="fa fa-bars"></i></a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#sidebar-chat" data-toggle="sidebar-menu" data-effect="st-effect-1" class="toggle pull-right visible-xs"><i class="fa fa-comments"></i></a>
+                    <a class="navbar-brand navbar-brand-primary hidden-xs" href="/">RidingToday</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="nav navbar-nav navbar-user">
+                        <!-- User -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="images/people/50/woman-4.jpg" width="35" alt="Cam" class="img-circle" /> Camilla <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="profile.html">Profile</a>
+                                </li>
+                                <li><a href="messages.html">Messages</a>
+                                </li>
+                                <li><a href="login.html">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form margin-none navbar-left hidden-xs">
+
+                        <!-- Search -->
+                        <div class="search-1">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-search"></i></span>
+                                <input type="text" class="form-control" placeholder="Search a friend">
+                            </div>
+                        </div>
+                        <div class="pull-left visible-md visible-lg" data-toggle="tooltip" data-placement="bottom" title="A few Color Examples. Download includes CSS Files for all color examples & the tools to Generate any Color combination. This Color-Switcher is for previewing purposes only.">
+                            <ul class="skins">
+                            </ul>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right hidden-xs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+        <div class="sidebar left sidebar-size-2 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" id="sidebar-menu" data-type="collapse">
+            <div class="sidebar-menu">
+                <div data-scrollable>
+                    <ul>
+                        <li class="category">Navigation</li>
+                        <li class="hasSubmenu open">
+                            <a href="/"><i class="icon-ship-wheel"></i> <span>Who's riding?</span></a>
+                            <ul class="in" id="timeline">
+                                <li class="active"><a href="/"><i class="fa fa-circle-o"></i> <span>View</span></a>
+                                </li>
+                                <li><a href="/events/new"><i class="fa fa-circle-o"></i><span>Add</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="profile.html"><i class="icon-user-1"></i> <span>Profile</span></a>
+                        </li>
+                        <li class=""><a href="users.html"><i class="fa fa-group"></i> <span>Users</span></a>
+                        </li>      
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <%= yield %>
+
+
+        
+                <!-- extra div for emulating position:fixed of the menu -->
+                
+
+                <!-- extra div for emulating position:fixed of the menu -->
+                <div class="st-content-inner">
+                    <div class="container-fluid">
+                        <div class="footer">RidingToday &copy; Copyright Notice</div>
+                    </div>
+                </div>
+
+                <!-- /st-content-inner -->
+                </div>
+
+            <!-- /st-content -->
+            </div>
+
+        <!-- /st-pusher -->
+        </div>
+
+    <!-- /st-container -->
+    
+<!-- Inline Script for colors and config objects; used by various external scripts; --><script>
+    var colors = {
+        "danger-color": "#e74c3c",
+        "success-color": "#81b53e",
+        "warning-color": "#f0ad4e",
+        "inverse-color": "#2c3e50",
+        "info-color": "#2d7cb5",
+        "default-color": "#6e7882",
+        "default-light-color": "#cfd9db",
+        "purple-color": "#9D8AC7",
+        "mustard-color": "#d4d171",
+        "lightred-color": "#e15258",
+        "body-bg": "#f6f6f6"
+    };
+    var config = {
+        "theme": "social-1",
+        "themes": [],
+        "dist": "dist/themes",
+        "skins": {
+            "docs": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                }
+            },
+            "admin": {
+                "default": {
+                    "primary-color": "#3498db"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                }
+            },
+            "layout": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                }
+            },
+            "sidebar": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                }
+            },
+            "navbar": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                }
+            },
+            "color": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                }
+            },
+            "music": {
+                "default": {
+                    "primary-color": "#3498db"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                }
+            },
+            "social-1": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                }
+            },
+            "social-2": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                },
+                "default-nav-inverse": {
+                    "color-block": "#242424"
+                }
+            },
+            "social-3": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                },
+                "default-nav-inverse": {
+                    "color-block": "#242424"
+                }
+            },
+            "learning": {
+                "default": {
+                    "primary-color": "#16ae9f"
+                },
+                "orange": {
+                    "primary-color": "#e74c3c"
+                },
+                "blue": {
+                    "primary-color": "#4687ce"
+                },
+                "purple": {
+                    "primary-color": "#af86b9"
+                },
+                "brown": {
+                    "primary-color": "#c3a961"
+                }
+            }
+        },
+        "vendor_css": ["app/icons/pictoicons/css/picto.css", "bower_components/bootstrap3-datepicker/css/datepicker.css", "bower_components/jquery-minicolors/jquery.minicolors.css", "bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css", "bower_components/highlightjs/styles/railscasts.css", "bower_components/jvectormap/jquery-jvectormap.css", "bower_components/owlcarousel/owl-carousel/owl.carousel.css", "bower_components/morrisjs/morris.css"],
+        "discover": {
+            "exclude": ["animated-climacons", "bridget", "bootstrap-sass", "bootstrap-rtl", "mocha", "modernizr", "requirejs", "jquery-ui-map", "jquery-ui"]
+        },
+        "debug": true
+    };
+    </script>
 
 </body>
 </html>
