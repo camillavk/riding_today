@@ -3,12 +3,11 @@
     <div class="container-fluid">
         <div class="panel panel-default">
             <div class="panel-body">
-                <form class="form-horizontal" role="form">
-				<%= form_for @event do |f| %>
+				<%= form_for @event, :html => { :class => "form-horizontal" }  do |f| %>
 					<div class="form-group">
 						<%= f.label :day, "When are you riding?", class: "col-sm-3 control-label" %>
 						<div class="col-sm-9">
-							<%= f.select :day, options_for_select([['Today', 'Today'],['Tomorrow', 'Tomorrow']]) %>s
+							<%= f.select :day, options_for_select([['Today', 'Today'],['Tomorrow', 'Tomorrow']]), :data => { :style => "btn-white", :size => "5" } %>
 						</div>
 					</div>
 					<div class="form-group">
@@ -21,16 +20,24 @@
 						<%= f.label :level, "Level", class: "col-sm-3 control-label" %>
 						<div class="col-sm-9">
 						    <div class="checkbox">
-								<%= f.check_box :level %> Beginner (Greens and Blues)
+						    	<label>
+									<%= f.check_box :level %> Beginner (Greens and Blues)
+								</label>
 							</div>
 							<div class="checkbox">
-								<%= f.check_box :level %> Intermediate (Reds)
+								<label>
+									<%= f.check_box :level %> Intermediate (Reds)
+								</label>
 							</div>
 							<div class="checkbox">
-								<%= f.check_box :level %> Advanced (Blacks)
+								<label>
+									<%= f.check_box :level %> Advanced (Blacks)
+								</label>
 							</div>
 							<div class="checkbox">
-								<%= f.check_box :level %> Nuts (Anywhere with Snow)
+								<label>
+									<%= f.check_box :level %> Nuts (Anywhere with Snow)
+								</label>
 							</div>
 						</div>
 					</div>
@@ -49,12 +56,26 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<%= f.label :meeting, "Meet time", class: "col-sm-3 control-label" %>
+						<div class="col-sm-9">
+							<%= f.time_select :meeting, class: "selectpicker" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<%= f.label :space, "Max group size", class: "col-sm-3 control-label" %>
+						<div class="col-sm-9">
+							<%= f.select :space, options_for_select([['One', 'One'],['Two', 'Two'], 
+							['Three', 'Three'], ['Four', 'Four'], ['Five', 'Five'], ['Six', 'Six'],
+							['Seven', 'Seven'], ['Eight', 'Eight']]), 
+							:data => { :style => "btn-white", :size => "5" } %>
+					    </div>
+					</div>
+					<div class="form-group">
 					    <div class="col-sm-offset-3 col-sm-9">
 					    	<%= f.submit "Submit", class: "btn btn-primary" %>
 					    </div>
 					</div>
-					<% end %>
-				</form>
+				<% end %>
 			</div>
 		</div>
 	</div>
