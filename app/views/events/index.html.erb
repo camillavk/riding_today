@@ -5,10 +5,10 @@
         <!-- Tabs -->
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#color-home" data-toggle="tab"><i class="fa fa-fw fa-home"></i>Today</a>
+                    <a href="#color-home" data-toggle="tab" id="today">Today</a>
                 </li>
                 <li>
-                    <a href="#color-profile" data-toggle="tab"><i class="fa fa-fw fa-user"></i>Tomorrow</a>
+                    <a href="#color-profile" data-toggle="tab" id="tomorrow">Tomorrow</a>
                 </li>
             </ul>
             <!-- // END Tabs -->
@@ -17,6 +17,7 @@
             <div class="tab-content">
                 <div id="color-home" class="tab-pane active">
                     <div class="st-content-inner">
+                    <div class="today">
                         <div class="container-fluid">
                             <div class="panel panel-default">
                             </div>
@@ -35,32 +36,86 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <% if @eventsToday.any? %>
+                                    <% @eventsToday.each do |event| %>
                                         <tr>
                                             <td>
                                                 <img src="images/people/110/woman-6.jpg" width="40" class="img-circle" />
                                                 Michelle Smith
                                             </td>
-                                            <td>Prodains Basin</td>
-                                            <td>Beginner</td>
-                                            <td>Piste</td>
-                                            <td>9 am</td>
+                                            <td><%= event.area %></td>
+                                            <td><%= event.level %></td>
+                                            <td><%= event.plan %></td>
+                                            <td><%= event.meeting %></td>
                                             <td>
-                                                <div class="progress">
+                                                <%= event.space %>
+                                                <!-- <div class="progress">
                                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </td>
                                             <td class="text-right">
                                                 <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Edit">Join</i></a>
                                             </td>
                                         </tr>
+                                        <% end %>
+                                    <% end %>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div id="color-profile" class="tab-pane">
-                        <h3>Tomorrow</h3>
-                                                   
+                    </div>
+            
+                        <div id="color-profile" class="tab-pane active">
+                        <div class="st-content-inner">
+                        <div class="tomorrow">
+                            <div class="container-fluid">
+                                <div class="panel panel-default">
+                                </div>
+                                <!-- Progress table -->
+                                <div class="table-responsive">
+                                    <table class="table v-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Area</th>
+                                                <th>Level</th>
+                                                <th>Plan</th>
+                                                <th>Meeting</th>
+                                                <th>Space</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <% if @eventsTomorrow.any? %>
+                                        <% @eventsTomorrow.each do |event| %>
+                                            <tr>
+                                                <td>
+                                                    <img src="images/people/110/woman-6.jpg" width="40" class="img-circle" />
+                                                    Michelle Smith
+                                                </td>
+                                                <td><%= event.area %></td>
+                                                <td><%= event.level %></td>
+                                                <td><%= event.plan %></td>
+                                                <td><%= event.meeting %></td>
+                                                <td>
+                                                    <%= event.space %>
+                                                    <!-- <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div> -->
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Edit">Join</i></a>
+                                                </td>
+                                            </tr>
+                                            <% end %>
+                                        <% end %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>                          
                     </div>
                 </div>
             <!-- // END Panes -->
