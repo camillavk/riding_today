@@ -41,12 +41,14 @@
                                         <tr>
                                             <td>
                                                 <img src="images/people/110/woman-6.jpg" width="40" class="img-circle" />
-                                                Michelle Smith
+                                                  <% unless event.user.nil? %>
+                                                    <%= event.user.name %>
+                                                  <% end %>
                                             </td>
                                             <td><%= event.area %></td>
                                             <td><%= event.level %></td>
                                             <td><%= event.plan %></td>
-                                            <td><%= event.meeting %></td>
+                                            <td><%= event.meeting.strftime('%H:%M') %></td>
                                             <td>
                                                 <%= event.space %>
                                                 <!-- <div class="progress">
@@ -55,7 +57,7 @@
                                                 </div> -->
                                             </td>
                                             <td class="text-right">
-                                                <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Edit">Join</i></a>
+                                                <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Edit" id="join">Join</i></a>
                                             </td>
                                         </tr>
                                         <% end %>
@@ -92,12 +94,14 @@
                                             <tr>
                                                 <td>
                                                     <img src="images/people/110/woman-6.jpg" width="40" class="img-circle" />
-                                                    Michelle Smith
+                                                    <% unless event.user.nil? %>
+                                                      <%= event.user.name %>
+                                                    <% end %>
                                                 </td>
                                                 <td><%= event.area %></td>
                                                 <td><%= event.level %></td>
                                                 <td><%= event.plan %></td>
-                                                <td><%= event.meeting %></td>
+                                                <td><%= event.meeting.strftime('%H:%M') %></td>
                                                 <td>
                                                     <%= event.space %>
                                                     <!-- <div class="progress">

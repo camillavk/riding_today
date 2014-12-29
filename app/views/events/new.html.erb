@@ -20,24 +20,13 @@
 						<%= f.label :level, "Level", class: "col-sm-3 control-label" %>
 						<div class="col-sm-9">
 						    <div class="checkbox">
-						    	<label>
-									<%= f.check_box :level %> Beginner (Greens and Blues)
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-									<%= f.check_box :level %> Intermediate (Reds)
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-									<%= f.check_box :level %> Advanced (Blacks)
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-									<%= f.check_box :level %> Nuts (Anywhere with Snow)
-								</label>
+								<%= f.radio_button :level, "Beginner" %> Beginner (Greens and Blues)
+								<br />
+								<%= f.radio_button :level, "Intermediate" %> Intermediate (Reds)
+								<br />
+								<%= f.radio_button :level, "Advanced" %> Advanced (Blacks)
+								<br />
+								<%= f.radio_button :level, "Nuts" %> Nuts (Anywhere with Snow)
 							</div>
 						</div>
 					</div>
@@ -64,9 +53,9 @@
 					<div class="form-group">
 						<%= f.label :space, "Max group size", class: "col-sm-3 control-label" %>
 						<div class="col-sm-9">
-							<%= f.select :space, options_for_select([['One', 'One'],['Two', 'Two'], 
-							['Three', 'Three'], ['Four', 'Four'], ['Five', 'Five'], ['Six', 'Six'],
-							['Seven', 'Seven'], ['Eight', 'Eight']]), 
+							<%= f.select :space, options_for_select([['One', 1],['Two', 2], 
+							['Three', 3], ['Four', 4], ['Five', 5], ['Six', 6],
+							['Seven', 7], ['Eight', 8]]), 
 							:data => { :style => "btn-white", :size => "5" } %>
 					    </div>
 					</div>
